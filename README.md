@@ -618,25 +618,28 @@ String#downcase + ==:  2914767.7 i/s - 1.27x slower
 ##### String Concatenation [code](code/string/concatenation.rb)
 
 ```
-$ ruby  code/string/concatenation.rb
+ruby -v code/string/concatenation.rb
 ruby 2.2.0p0 (2014-12-25 revision 49005) [x86_64-darwin14]
 
 Calculating -------------------------------------
-            String#+    96.314k i/100ms
-       String#concat    99.850k i/100ms
-       String#append   100.728k i/100ms
-         "foo" "bar"   121.936k i/100ms
+            String#+    93.567k i/100ms
+       String#concat    97.270k i/100ms
+       String#append    98.221k i/100ms
+  "#{'foo'}#{'bar'}"   117.040k i/100ms
+         "foo" "bar"   116.619k i/100ms
 -------------------------------------------------
-            String#+      2.731M (± 4.6%) i/s -     13.677M
-       String#concat      2.847M (± 5.2%) i/s -     14.279M
-       String#append      2.972M (± 6.1%) i/s -     14.807M
-         "foo" "bar"      4.951M (± 6.2%) i/s -     24.753M
+            String#+      2.693M (± 2.6%) i/s -     13.474M
+       String#concat      2.754M (± 3.5%) i/s -     13.812M
+       String#append      2.884M (± 3.3%) i/s -     14.438M
+  "#{'foo'}#{'bar'}"      4.809M (± 3.7%) i/s -     24.110M
+         "foo" "bar"      4.827M (± 3.2%) i/s -     24.140M
 
 Comparison:
-         "foo" "bar":  4950955.3 i/s
-       String#append:  2972048.5 i/s - 1.67x slower
-       String#concat:  2846666.4 i/s - 1.74x slower
-            String#+:  2730980.7 i/s - 1.81x slower
+         "foo" "bar":  4826938.4 i/s
+  "#{'foo'}#{'bar'}":  4809230.2 i/s - 1.00x slower
+       String#append:  2883753.5 i/s - 1.67x slower
+       String#concat:  2754320.8 i/s - 1.75x slower
+            String#+:  2693259.0 i/s - 1.79x slower
 ```
 
 ##### `String#match` vs `String#start_with?`/`String#end_with?` [code (start)](code/string/start-string-checking-match-vs-start_with.rb) [code (end)](code/string/end-string-checking-match-vs-start_with.rb)
